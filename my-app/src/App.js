@@ -22,10 +22,29 @@ const movies = [
 ]
 
 class App extends Component {
+
+  // Render: componentWillMount() -> render() -> componentDidMount()
+  // Update: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> componentDidMount()
+
+  // render될 동안의 setTimeOut으로 render되는 동안 지연시간을 주기
+  state = {
+    greeting: 'Hello!'
+  }
+
+  // state를 바꿀 때에는 setState를 설정해주어야 한다.
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        greeting: 'Hello again!'
+      })
+    }, 2000)
+  }
+
   render() {
     return (
       // jsx
       <div className="App">
+        {this.state.greeting}
         {movies.map((movie, index) => {
           return <Movie title={movie.title} poster={movie.poster} key={index}/>
         })}

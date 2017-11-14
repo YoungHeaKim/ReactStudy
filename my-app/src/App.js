@@ -3,10 +3,6 @@ import './App.css';
 import Movie from './Movie'
 
 class App extends Component {
-
-  // Render: componentWillMount() -> render() -> componentDidMount()
-  // Update: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> componentDidMount()
-
   // render될 동안의 setTimeOut으로 render되는 동안 지연시간을 주기
   state = {
   }

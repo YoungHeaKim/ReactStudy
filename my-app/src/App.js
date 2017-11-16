@@ -10,6 +10,9 @@ class App extends Component {
   // state를 바꿀 때에는 setState를 설정해주어야 한다.
   componentDidMount() {
     fetch('https://yts.ag/api/v2/list_movies.json?sort by=rating')
+      .then(response => response.json())
+      .then(json => console.log(json))
+      .catch(err => console.log(err))
   }
 
   // movies라는 variable 데이터를 저장하는 코드

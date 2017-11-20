@@ -9,20 +9,34 @@ class App extends Component {
 
   // state를 바꿀 때에는 setState를 설정해주어야 한다.
   componentDidMount() {
-    fetch('https://yts.ag/api/v2/list_movies.json?sort by=rating')
-      .then(response => response.json())
-      .then(json => console.log(json))
-      .catch(err => console.log(err))
+    this._getMovies();
   }
 
   // movies라는 variable 데이터를 저장하는 코드
   // _를 붙인 이유는 리엑트 자체 기능과 내가 만든 기능의 차이를 두기 위해 내가 만든 기능 이름앞에 _를 붙인다.
   _renderMovies = () => {
-    const movies = this.state.movies.map((movie, index) => {
-      return <Movie title = {movie.title} poster = {movie.poster} key = {index}/>
+    const movies = this.state.movies.map(movie => {
+      return <Movie title = {movie.large_cover_image} poster = {movie.poster} key={movie.id}/>
     })
     return movies
   }
+
+  _getMovies = async () => {
+    // await란 무엇인가 리턴할 때 해당되는 모든 것의 데이터를 movies에 저장할 때 사용한다.
+    // _callApi 함수가 실행되기 전까지는 다음 문장이 실행되지 않는다.
+    const movies = await this._callApi()
+    this.setState({
+      movies 
+    })
+  }
+
+  _callApi() {
+    return fetch('https://yts.ag/api/v2/list_movies.json?sort by=rating')
+    .then(response => response.json())
+    .then(json => json.data.movies)
+    .catch(err => console.log(err))
+  }
+
 
   render() {
     return (

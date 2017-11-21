@@ -61,3 +61,17 @@ function MoviePoster({poster}){
 ## 동가와 비동기
 동기는 먼저있는 코드가 실행되지 않고 나서는 다음 코드가 실행되지 않는다.  
 동기보다는 비동기를 사용하는 것이 더 좋다. 그 이유는 두개의 database에서 동시에 data를 불러올 때 두가지를 한번에 실행을 해야하기 때문에 비동기를 사용하여야 한다.  
+
+## Async Await in React
+
+만약 밑에와 같은 코드가 있으면 `this.setState`부터는 `_callApi`가 실행이 완료되기 전까지는 실행이 되지않는 동기식으로 변화를 시켜줄 수 있다.  
+```js
+_getMovies = async () => {
+  // await란 무엇인가 리턴할 때 해당되는 모든 것의 데이터를 movies에 저장할 때 사용한다.
+  // _callApi 함수가 실행되기 전까지는 다음 문장이 실행되지 않는다.
+  const movies = await this._callApi()
+  this.setState({
+    movies 
+  })
+}
+```

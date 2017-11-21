@@ -16,7 +16,13 @@ class App extends Component {
   // _를 붙인 이유는 리엑트 자체 기능과 내가 만든 기능의 차이를 두기 위해 내가 만든 기능 이름앞에 _를 붙인다.
   _renderMovies = () => {
     const movies = this.state.movies.map(movie => {
-      return <Movie title = {movie.title} poster = {movie.large_cover_image} key={movie.id}/>
+      return <Movie
+      title = {movie.title}
+      poster = {movie.large_cover_image}
+      key = {movie.id}
+      genres = {movie.genres}
+      synopsis = {movie.synopsis}
+      />
     })
     return movies
   }

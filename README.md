@@ -75,3 +75,6 @@ _getMovies = async () => {
   })
 }
 ```
+
+## react-lines-ellipsis
+react-lines-ellipsis를 설치할때는 npm대신에 yarn을 사용하여야 한다.  

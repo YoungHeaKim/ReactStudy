@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   _callApi = () => {
-    return fetch('https://yts.ag/api/v2/list_movies.json?sort by=rating')
+    return fetch('https://yts.ag/api/v2/list_movies.json?sort by=download count')
     .then(potato => potato.json())
     .then(json => json.data.movies)
     .catch(err => console.log(err))
@@ -45,11 +45,12 @@ class App extends Component {
 
 
   render() {
+    const { movies } = this.state;
     return (
       // jsx
       // 3항연산자를 사용하여 성공하면 위의 함수를 실행해준다.
-      <div className="App">
-        {this.state.movies ? this._renderMovies() : 'Loading'}
+      <div className={ movies ? "App" : "App--loading"}>
+        {movies ? this._renderMovies() : 'Loading'}
       </div>
     );
   }

@@ -4,8 +4,7 @@ import Movie from './Movie'
 
 class App extends Component {
   // render될 동안의 setTimeOut으로 render되는 동안 지연시간을 주기
-  state = {
-  }
+  state = {}
 
   // state를 바꿀 때에는 setState를 설정해주어야 한다.
   componentDidMount() {

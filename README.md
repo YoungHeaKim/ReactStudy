@@ -78,3 +78,21 @@ _getMovies = async () => {
 
 ## react-lines-ellipsis
 react-lines-ellipsis를 설치할때는 npm대신에 yarn을 사용하여야 한다.  
+
+- - -
+# Timer만들기
+
+## Expo XDE를 사용하여 기본 파일 만들기
+밑의 사진에서 create new project를 눌러 밑의 창이 뜨면 my-new-project부분에 원하는 이름을 적고 create를 눌러주면 기본적인 파일들을 생성해준다.  
+![](./imgs/XCode.png)
+![](./imgs/create.png)
+
+그후 해당 폴더를 visual-studio에 열어주면 파일들을 열 수 있다.  
+그리고 Xcode에서는 파일을 오픈해준 후에 밑의 창이 뜨면 오른쪽 상단에 있는 Device를 누른 후 mac에서는 mac ios를 눌러주고 윈도우의 경우에는 android를 클릭하여 실행을 시켜준다.  
+![](./imgs/open.png)
+밑의 창이 띄워지면 기본세팅은 완료된 것이다.  
+![](./imgs/first.png)
+
+## TIMER에 관한 컴포넌트 생성
+해당 폴더안에서 Components파일을 생성 후 폴더안에 Timer라는 폴더를 생성해주고 그 후에 안에 index.js를 만들어 준다.  
+index.js안에 리엑트를 연결시켜준 후 안에서 CSS까지 가능하도록 작성을 하여준다.  

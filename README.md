@@ -96,3 +96,29 @@ react-lines-ellipsis를 설치할때는 npm대신에 yarn을 사용하여야 한
 ## TIMER에 관한 컴포넌트 생성
 해당 폴더안에서 Components파일을 생성 후 폴더안에 Timer라는 폴더를 생성해주고 그 후에 안에 index.js를 만들어 준다.  
 index.js안에 리엑트를 연결시켜준 후 안에서 CSS까지 가능하도록 작성을 하여준다.  
+
+## BUTTON에 관한 컴포넌트 생성
+버튼 컴포넌트는 state가 없는 stateless컴포넌트이다.  
+button을 위한 컴포넌트파일 안에 새로운 button이라는 파일을 만든 후 timer와 똑같이 index.js를 만들어 작성하여 준다.  
+index.js에 대한 작성이 끝나면 Timer폴더안에 있는 index.js에 밑의 명령어를 작성 후에 원하는 곳에 `<Button />`을 사용하여 주면 된다.  
+이떄 원하는 Button아이콘을 찾을 수 있는데 이것은 [vector-icons](https://expo.github.io/vector-icons/)에 가면 찾을 수 있다.  
+```js
+import Button from '../Button';
+```
+
+### `TouchableOpacity`란?
+해당 버튼과 같은 것을 눌렀을 때 투명도를 증가시켜 투명해지게 만드는 명령어이다.  
+반대로는 `TouchableHighlight`라는 명령어도 있다. 이 명령어는 버튼과 같은 것을 눌렀을 때 더 밝아지게 만드는 효과를 낼 수 있다.  
+또 `TouchableWithoutFeedback`라는 명령어도 있는데 이 명령어는 아무 효과를 없게 하고싶을 때 사용한다.  
+
+이때 주의 사항이 있다. 아이폰에서는 버튼을 누를 때 `TouchableOpacity`가 작동하는 것이 아니라 땔 떄 작동하기 때문에 주의해야한다.  
+그리고 사용법은 아래와 같다.  
+```js
+<TouchableOpacity onPressOut={onPress} >
+  <FontAwesome name = {iconName} size = {80} color = "white" />
+</TouchableOpacity>
+```
+위와 같이 작성 후 실제 버튼이 들어가는 곳에 아래와 같이 onPress가 되었을 때 함수를 적어주면 작동을 한다. 실험으로 alert를 띄워보았다. 단 위의 코드에서 `TouchableOpacity`를 작성하면 해당 괄호안에 `onPress`라는 함수를 적어주어야 한다.  
+```js
+<Button iconName="stop-circle" onPress={ () => alert("It works!")}/> 
+```

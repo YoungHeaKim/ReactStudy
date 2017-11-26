@@ -249,3 +249,32 @@ provider를 사용하는 이유는 리듀서와 앱의 state를 복사하고 우
 import { Provider } from 'react-redux';
 ```
 Provider의 역할은 스토어를 복사하여 자신의 칠드런 컴포넌트에 넣는 것이다.  
+
+## 새로운 timer폴더 안에 presenter.js를 생성
+새로 생성하는 이유는 presenter.js에는 state 혹은 redux작업을 하지않고 index.js에서 redux작업을 한다.  
+presenter.js에서 데이터를 보여주는 것을 관리한다.  
+그리고 index.js에서는 가져온 state를 관리한다.  
+
+## presenter.js에 해야할 일
+1. connect라는 것을 import로 불러온다.
+- connect는 나의 컴포넌트를 스토어에 연결하는 것을 도와준다.  
+```js
+import { connect } from 'react-redux';
+```
+
+2. timer폴더를 연결시켜준다.
+```js
+import Timer from './presenter';
+```
+
+3. presenter에서도 버튼을 플레이할 때만 보여줄 수 있게 만들어준다.  
+```js
+{ !isPlaying ? <Button iconName="play-circle" onPress={ () => alert("It works!")}/> : null }
+```
+위에서 사용하는 것을 좀더 짧게 사용할 수 있는데 이것은 밑에 코드와 같이 사용이 가능하다.  
+```js
+{ !isPlaying && <Button iconName="play-circle" onPress={ () => alert("It works!")}/>}
+```
+
+### 왜 presenter.js에서 this.props를 사용하느냐?
+index.js에서 state를 골라서 이기 때문이다.  

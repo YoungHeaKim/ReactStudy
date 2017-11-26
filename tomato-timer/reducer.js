@@ -52,6 +52,43 @@ function reducer(state = initialState, action) {
 // Reducer Function 생성
 // Reducer Function
 
+function applyStartTimer(state) {
+  return {
+    ...state,
+    isPlaying: true
+  };
+}
+
+function applyreStartTimer(state) {
+  return {
+    ...state,
+    isPlaying: true,
+    elapsedTime: 0
+  };
+}
+
+function applyAddSecond(state) {
+  if(state.elapsedTime < timerDuration) {
+    return {
+      ...state,
+      elapsedTime: state.elapsedTime + 1
+    }
+  } else {
+    return {
+      ...state,
+      isPlaying: false
+    }
+  }
+}
+
 // Export Action Creators
 
+const actionCreators = {
+  startTimer,
+  restartTimer,
+  addSecond
+}
+
 // Export Reducer
+
+export default reducer;

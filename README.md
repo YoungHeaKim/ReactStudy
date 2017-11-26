@@ -139,6 +139,77 @@ state에 저장되어 있는 모든 것은 object로 저장이 된다.
 어떠한 정보를 가져와 reduce가 그 정보를 object화하여 state에 저장을 한 후 저장한 정보를 불러와 사용하는 것을 redux라 한다.  
 redux는 react에만 사용가능한 언어가 아니라 js, jquery등 다양한 언어와 같이 사용이 가능하다.  
 
+## redux 사용순서
+1. 원하는 것을 import하여 불러온다.
+2. Action들을 정의한다.  
+```js
+const START_TIMER = 'START_TIMER';
+const RESTART_TIMER = 'RESTART_TIMER';
+const ADD_SECOND = 'ADD_SECOND';
+```
+3. Action의 Creater들을 정의한다.
+```js
+function startTimer() {
+  return {
+    type: START_TIMER
+  }
+}
+function restartTimer() {
+  return {
+    type: RESTART_TIMER
+  }
+}
+function addSecond() {
+  return {
+    type: ADD_SECOND
+  }
+}
+```
+4. Reducer를 정의한다.
+```js
+const TIME_DURATION = 1500;
+
+const initialState = {
+  isPlaying: false,
+  elapsedTime: 0,
+  timerDuration: TIME_DURATION
+}
+
+function reducer(state = initialState, action) {
+  switch(action.type){
+    case START_TIMER:
+      return applyStartTimer(state);
+    case RESTART_TIMER:
+      return applyRestartTimer(state);
+    case ADD_SECOND:
+      return applyAddSecond(stete);
+  }
+}
+```
+5. Reducer의 함수를 정의한다.
+```js
+function applyStartTimer(state) {
+  return {
+    ...state,
+    isPlaying: true
+  };
+}
+```
+6. Export Action Creators
+밑에와 같이 사용하는 이유는 앱에서도 사용하여야 하기 위해서 사용을 한다.  
+밑에서 사용하는 함수들은 버튼에서 사용하는 함수이다.  
+```js
+const actionCreators = {
+  startTimer,
+  restartTimer,
+  addSecond
+}
+```
+7. Export Reducer
+```js
+export default reducer;
+```
+
 ## switch와 case
 swith와 case구문은 if와 else if와 비슷하게 사용이 가능하다.  
 밑에와 같이 사용이 가능하다.  
@@ -160,3 +231,21 @@ function greet(lang) {
   }
 }
 ```
+
+## ...state의 의미
+밑의 코드에서 ...state의 의미는 현재의 코드상태를 새로운 코드상태가 덮어씌운다는 의미가 들어있다.  
+```js
+function applyStartTimer(state) {
+  return {
+    ...state,
+    isPlaying: true
+  };
+}
+```
+
+##  reducer를 실제 앱에서 연결하는 방법
+provider를 사용하는 이유는 리듀서와 앱의 state를 복사하고 우리의 컴포넌트로 복사하여 사용할 수 있도록 하기 위해서이다.  
+```js
+import { Provider } from 'react-redux';
+```
+Provider의 역할은 스토어를 복사하여 자신의 칠드런 컴포넌트에 넣는 것이다.  

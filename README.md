@@ -278,3 +278,10 @@ import Timer from './presenter';
 
 ### 왜 presenter.js에서 this.props를 사용하느냐?
 index.js에서 state를 골라서 이기 때문이다.  
+
+## redux에서 bind action creators를 불러온다.
+bind action creators는 action creators를 한번에 묶어준다.  
+bind할 두개는 dispatch와 액션을 묶어준다.  
+
+## dispatch의 역할
+디스패치의 역할은 액션을 reducer로 보내는 함수이다.  

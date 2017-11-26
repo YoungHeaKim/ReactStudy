@@ -122,3 +122,19 @@ import Button from '../Button';
 ```js
 <Button iconName="stop-circle" onPress={ () => alert("It works!")}/> 
 ```
+
+- - -
+# 위에서 만들었던 timer를 redux화 시키기
+
+## redux설치
+`npm install redux react-redux --save`로 redux를 설치하여준다.  
+이때 두가지를 설치하는데 `redux`와 `react-redux`를 설치하여 준다.  
+
+## redux란?
+readux는 state management of react라는 의미를 가지고 있다.  
+redux를 사용하는 이유는 컴포넌트는 local state이지만 app은 global state이다. 이 때, 두가지의 state에서 공유해야할 경우 해당 state를 저장할 곳이 필요한데 공유할 state를 저장하는 방법을 redux라 한다.  
+redux의 역할은 global shared state를 저장하는 것이다. 또한 redux는 state를 저장하는 state 컨테이너라고도 부른다.   
+리덕스는 redux만의 DB를 갖는 것과 비슷하다. redux에 저장되어 있는 것들중 원하는 정보들만을 불러올 수 있다.  
+state에 저장되어 있는 모든 것은 object로 저장이 된다.  
+어떠한 정보를 가져와 reduce가 그 정보를 object화하여 state에 저장을 한 후 저장한 정보를 불러와 사용하는 것을 redux라 한다.  
+redux는 react에만 사용가능한 언어가 아니라 js, jquery등 다양한 언어와 같이 사용이 가능하다.  

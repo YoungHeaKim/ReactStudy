@@ -45,7 +45,7 @@ function reducer(state = initialState, action) {
     case RESTART_TIMER:
       return applyRestartTimer(state);
     case ADD_SECOND:
-      return applyAddSecond(stete);
+      return applyAddSecond(state);
     default: 
       return state;
   }
@@ -70,7 +70,7 @@ function applyRestartTimer(state) {
 }
 
 function applyAddSecond(state) {
-  if(state.elapsedTime < timerDuration) {
+  if(state.elapsedTime < TIME_DURATION) {
     return {
       ...state,
       elapsedTime: state.elapsedTime + 1

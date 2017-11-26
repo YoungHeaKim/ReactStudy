@@ -285,3 +285,17 @@ bind할 두개는 dispatch와 액션을 묶어준다.
 
 ## dispatch의 역할
 디스패치의 역할은 액션을 reducer로 보내는 함수이다.  
+
+## interval 함수란
+interval함수는 초가 지나면 실행되는 함수이다.  
+```js
+const interval = setInteval(function() {
+  console.log('hello')
+}, 1000)
+clearInterval(interval);
+```
+위의 함수는 예시인대 1초마다 hello를 찍는 함수이다.  
+`crearInterval`을 하면 interval이 멈춘다.  
+
+## componentWillReceiveProps란?
+새로운 컴포넌트를 불러올 때마다 컴포넌트를 불러오는 함수를 말한다.   

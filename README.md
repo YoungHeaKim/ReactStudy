@@ -138,3 +138,25 @@ redux의 역할은 global shared state를 저장하는 것이다. 또한 redux�
 state에 저장되어 있는 모든 것은 object로 저장이 된다.  
 어떠한 정보를 가져와 reduce가 그 정보를 object화하여 state에 저장을 한 후 저장한 정보를 불러와 사용하는 것을 redux라 한다.  
 redux는 react에만 사용가능한 언어가 아니라 js, jquery등 다양한 언어와 같이 사용이 가능하다.  
+
+## switch와 case
+swith와 case구문은 if와 else if와 비슷하게 사용이 가능하다.  
+밑에와 같이 사용이 가능하다.  
+```js
+function greet(lang) {
+  switch(lang) {
+    case 'korean':
+      return '안녕';
+    case 'spanish':
+      return 'hola';
+    case 'greek':
+      return 'giazu';
+    case 'chinese':
+      return 'nihao';
+    case 'english':
+      return 'hi';
+    default:
+      return 'dont know'
+  }
+}
+```

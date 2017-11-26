@@ -30,12 +30,12 @@ function addSecond() {
 // 리듀서 정의
 // Reducer
 
-const TIME_DURATION = 1500;
+const TIMER_DURATION = 1500;
 
 const initialState = {
   isPlaying: false,
   elapsedTime: 0,
-  timerDuration: TIME_DURATION
+  timerDuration: TIMER_DURATION
 }
 
 function reducer(state = initialState, action) {
@@ -64,13 +64,13 @@ function applyStartTimer(state) {
 function applyRestartTimer(state) {
   return {
     ...state,
-    isPlaying: true,
+    isPlaying: false,
     elapsedTime: 0
   };
 }
 
 function applyAddSecond(state) {
-  if(state.elapsedTime < TIME_DURATION) {
+  if(state.elapsedTime < TIMER_DURATION) {
     return {
       ...state,
       elapsedTime: state.elapsedTime + 1

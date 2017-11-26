@@ -39,8 +39,7 @@ function formatTime(time) {
       elapsedTime,
       timerDuration,
       startTimer,
-      restartTimer,
-      addSecond
+      restartTimer
     } = this.props;
     return (
       <View style = {styles.container}>

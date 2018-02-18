@@ -61,6 +61,18 @@ class App extends Component {
     this.setState({
       todos: nextTodos
     });
+
+    // 또다른 방법
+    // this.setState({
+    //   todos: [
+    //     ...todos.slice(0, index),
+    //     {
+    //       ...selected,
+    //       checked: !selected.checked
+    //     },
+    //     ...todos.slice(index + 1, todos.length)
+    //   ]
+    // });
   }
 
   render() {

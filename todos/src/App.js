@@ -75,13 +75,23 @@ class App extends Component {
     // });
   }
 
+  handleRemove = (id) => {
+    const { todos } = this.state;
+
+    // 파라미터로 받은 id를 갖고 있지 않는 배열을 새로 생성시킨다.
+    this.setState({
+      todos: todos.filter(todo => todo.id !== id)
+    });
+  }
+
   render() {
     const { input, todos } = this.state;
     const {
       handleChange,
       handleCreate,
       handleKeyPress,
-      handleToggle
+      handleToggle,
+      handleRemove
     } = this;
 
     return (
@@ -93,7 +103,7 @@ class App extends Component {
           onCreate={handleCreate}
         />
       )}>
-        <TodoItemList todos={todos} onToggle={handleToggle}/>
+        <TodoItemList todos={todos} onToggle={handleToggle} onRemove={handleRemove}/>
       </TodoListTemplate>
     );
   }
